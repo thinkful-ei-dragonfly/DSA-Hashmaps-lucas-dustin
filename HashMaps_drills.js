@@ -68,9 +68,9 @@ function main() {
     }
     return result;
   }
-  
+
   function palindrome(string){
-    let numOdd = 0; 
+    let numOdd = 0;
     let hashMap = new Map();
     for(let i =0; i < string.length; i++){
       const char = string[i];
@@ -78,19 +78,58 @@ function main() {
         hashMap.set(char, 1);
         numOdd++;
       } else {
-        let number = hashMap.get(char); 
-        const newNum = number + 1; 
-        hashMap.set(char, newNum); 
+        let number = hashMap.get(char);
+        const newNum = number + 1;
+        hashMap.set(char, newNum);
         if(newNum % 2 === 0) {
           numOdd--;
         }
         else if(newNum % 2 !== 0){
           numOdd++;
         }
-      } 
+      }
     }
     if (numOdd > 1) return false;
     else return true;
+  }
+
+  function anagramGroup(array) {
+    let resultArray = []
+    let testArray = ["ah", "ha", "hello"]
+
+    testArray.forEach(word => {
+      word = new Map()
+    })
+
+    for (var i = 0; i < testArray.length; i++) {
+      let wordGroup = []
+      testArray[i] // east
+      testArray[i + 1] // cars
+      for (var j = 0; j < testArray[i].length; j++) {
+        let match = null
+        if (testArray[i + 1].has(testArray[i][j])) {
+          
+        }//each letter
+      }
+    }
+    // for (let word = 0; word < array.length; word++) {
+    //   // iterate over each word in the array
+    //   let hashWord = new Map()
+    //   let wordGroup = []
+    //
+    //   for (var i = 0; i < array[word].length; i++) {
+    //     if (array[word + 1].has(array[word][i])) {
+    //
+    //     }
+    //   }
+    //
+    //   wordGroup.push(array[word])
+    //
+    //   if (something) {
+    //     resultsArray.push(wordGroup)
+    //   }
+    //
+    // }
   }
 }
 
