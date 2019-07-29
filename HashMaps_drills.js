@@ -94,43 +94,34 @@ function main() {
   }
 
   function anagramGroup(array) {
-    let resultArray = []
-    let testArray = ["ah", "ha", "hello"]
 
-    testArray.forEach(word => {
-      word = new Map()
-    })
+    let highestIndex = 0;
+    let resultArray = [];
+   
+    let hashMap = new Map();
 
-    for (var i = 0; i < testArray.length; i++) {
-      let wordGroup = []
-      testArray[i] // east
-      testArray[i + 1] // cars
-      for (var j = 0; j < testArray[i].length; j++) {
-        let match = null
-        if (testArray[i + 1].has(testArray[i][j])) {
-          
-        }//each letter
+    for(let word in array) {
+
+      const sortedWord = array[word].split('').sort().join('');
+
+      if(!hashMap.has(sortedWord)) {
+
+        hashMap.set(sortedWord, highestIndex);
+        resultArray.push([array[word]]);
+        highestIndex++;
+
+      }
+
+      else {
+        const index = hashMap.get(sortedWord);
+        resultArray[index].push(array[word]);
       }
     }
-    // for (let word = 0; word < array.length; word++) {
-    //   // iterate over each word in the array
-    //   let hashWord = new Map()
-    //   let wordGroup = []
-    //
-    //   for (var i = 0; i < array[word].length; i++) {
-    //     if (array[word + 1].has(array[word][i])) {
-    //
-    //     }
-    //   }
-    //
-    //   wordGroup.push(array[word])
-    //
-    //   if (something) {
-    //     resultsArray.push(wordGroup)
-    //   }
-    //
-    // }
+    return(resultArray);
   }
+
+  console.log(anagramGroup(['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']));
+
 }
 
 main();
