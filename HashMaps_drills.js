@@ -1,4 +1,6 @@
 const HashMap = require('./hashmap.js');
+const ChainMap = require('./SepChaining');
+
 function main() {
   const newHashMap = new HashMap();
 
@@ -124,4 +126,34 @@ function main() {
 
 }
 
-main();
+function chainMain() {
+  const newHashMap = new ChainMap();
+
+  newHashMap.MAX_LOAD_RATIO = 0.5;
+  newHashMap.SIZE_RATIO = 3;
+
+  newHashMap.set('Hobbit', 'Bilbo');
+  newHashMap.set('Hobbit', 'Frodo');
+  newHashMap.set('Wizard', 'Gandalf');
+  newHashMap.set('Human', 'Aragon');
+  newHashMap.set('Elf', 'Legolas');
+  newHashMap.set('Maiar', 'The Necromancer');
+  newHashMap.set('Maiar', 'Sauron');
+  newHashMap.set('RingBearer', 'Gollum');
+  newHashMap.set('LadyOfLight', 'Galadriel');
+  newHashMap.set('HalfElven', 'Arwen');
+  newHashMap.set('Ent', 'Treebeard');
+  newHashMap.delete('LadyOfLight');
+  newHashMap.delete('HalfElven');
+  newHashMap.delete('Wizard');
+
+
+  console.log(newHashMap);
+  console.log('________________');
+  console.log(newHashMap._hashTable[4].next);
+  console.log(newHashMap.get('Ent'));
+}
+
+chainMain();
+
+//main();
